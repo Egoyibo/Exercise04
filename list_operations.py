@@ -143,19 +143,57 @@ def custom_append(input_list, value):
 
 def custom_extend(input_list, values):
     """custom_extend(input_list, values) imitates input_list.extend(values)"""
-    pass    
+    input_list += values
     
 
 def custom_insert(input_list, index, value):
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    pass
+    
+    #custom_append(input_list[:index], value)
+    #custom_append(input_list, input_list [(index+1):])
+    #newlist1 = input_list[:index]
+    #custom_append (newlist1, value)
+    #custom_append (newlist1, input_list [index+1:])
+    #newlist2 = input_list [index:]
+    #input_list += newlist1
+    #input_list += newlist2
+    #return newlist1
+
+
+    #newlist1 = input_list[:index]
+    #custom_extend(newlist1, [value])
+    #custom_extend(newlist1, input_list [index+1:])
+
+    #custom_extend (input_list [:index], custom_extend ([value], input_list[index:]))
+
+    #custom_append (input_list [:index], value)
+
+    #for i in input_list:
+    #    custom_append(input_list, i)     
+    #return
+    #append(input_list[index:])
+
+'''>>> list[6:] = [None]
+>>> list
+[1, 2, 37, 42, 6, 7, None]
+>>> list[3:]
+[42, 6, 7, None]
+>>> list[2:-1]
+[37, 42, 6, 7]
+>>> list[3:] = list[2:-1]
+>>> list
+[1, 2, 37, 37, 42, 6, 7]
+>>> list [2] = 47
+>>> list
+[1, 2, 47, 37, 42, 6, 7]
+>>>''' 
 
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
    
-   count = 0
+    count = 0
     for i in input_list:
         if (i != value):
             count = count + 1
@@ -178,7 +216,7 @@ def custom_remove(input_list, value):
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
-    pass
+    
 
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
