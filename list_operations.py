@@ -150,7 +150,11 @@ def custom_insert(input_list, index, value):
     """custom_insert(input_list, index, value) imitates
     input_list.insert(index, value)
     """
-    
+    input_list[custom_len(input_list):] = [" "]
+
+    input_list[index+1:] = input_list[index:-1]
+
+    input_list[index] = value
     #custom_append(input_list[:index], value)
     #custom_append(input_list, input_list [(index+1):])
     #newlist1 = input_list[:index]
@@ -175,20 +179,20 @@ def custom_insert(input_list, index, value):
     #return
     #append(input_list[index:])
 
-'''>>> list[6:] = [None]
->>> list
-[1, 2, 37, 42, 6, 7, None]
->>> list[3:]
-[42, 6, 7, None]
->>> list[2:-1]
-[37, 42, 6, 7]
->>> list[3:] = list[2:-1]
->>> list
-[1, 2, 37, 37, 42, 6, 7]
->>> list [2] = 47
->>> list
-[1, 2, 47, 37, 42, 6, 7]
->>>''' 
+# #'''>>> list[6:] = [None]
+# #>>> list
+# #[1, 2, 37, 42, 6, 7, None]
+# #>>> list[3:]
+# [42, 6, 7, None]
+# >>> list[2:-1]
+# [37, 42, 6, 7]
+# >>> list[3:] = list[2:-1]
+# >>> list
+# [1, 2, 37, 37, 42, 6, 7]
+# >>> list [2] = 47
+# >>> list
+# [1, 2, 47, 37, 42, 6, 7]
+# >>>''' 
 
 def custom_remove(input_list, value):
     """custom_remove(input_list, value) imitates input_list.remove(value)"""
@@ -216,26 +220,168 @@ def custom_remove(input_list, value):
 
 def custom_pop(input_list):
     """custom_pop(input_list) imitates input_list.pop()"""
-    
+    out = input_list[-1]
+    del input_list[-1]
+
+    return out
 
 def custom_index(input_list, value):
     """custom_index(input_list, value) imitates input_list.index(value)"""
-    pass
+    count = 0
+    for num in input_list:
+        if num == value:
+            return count
+        else:
+            count = count + 1
 
 def custom_count(input_list, value):
     """custom_count(input_list, value) imitates input_list.count(value)"""
-    pass
+    item_count = 0
 
-def custom_reverse(input_list):
+    for item in input_list:
+        if item == value:
+            item_count = item_count + 1
+        else:
+            ()
+
+    return item_count
+
+def custom_reverse(input_list):  
     """custom_reverse(input_list) imitates input_list.reverse()"""
-    pass
+
+    #create a variable for holding the first swap index[i]
+    i = 0
+    #for i in ( custom_len(input_list))/2)
+    while (i < (( custom_len(input_list))/2)):
+        swap_box = input_list[i]
+        # print input_list
+        input_list[i] = input_list[-1-i]
+        # print input_list
+        input_list[-1-i] = swap_box
+        i = i + 1
+    return input_list 
+    
+    # Later, we will make this into a for loop 
+    # for item in input_list 
+    #     swap_box = input_list[i]
+    #     # print input_list
+    #     input_list[i] = input_list[-1-i]
+    #     # print input_list
+    #     input_list[-1-i] = swap_box
+    #     i = i + 1
+    # return input_list 
+
+    # for i in range ((custom_len(input_list)-1):
+    #     input_list[custom_len(input_list):] = [" "]
+    #     input_list[-1] = input_list[i]
+    #     del input_list[0]
+    # return input_list
+
+    # for i in range (1, (custom_len(input_list)-1) , 1):
+    #     input_list[custom_len(input_list):] = [" "]
+    #     input_list[-1] = input_list[0]
+    #     del input_list[0]
+    # return input_list
+
+    # for i in range (1, (custom_len(input_list)-1) , 1):
+    #     input_list[custom_len(input_list):] = [" "]
+    #     input_list[-1] = input_list[i]
+    #     del input_list[0]
+
+    # return input_list
+
+
+
+    # output_list = []
+
+    # # for 
+    # # custom_pop (input_list)
+    # for i in input_list:
+    #     output_list = custom_append(output_list, custom_pop(input_list[i]))
+    #     i = i +
+    # return output_list    
+
+
+
+    # for i in input_list:
+    #     custom_insert(input_list, )
+
+    # out = []
+
+    # for index in range((custom_len(input_list)-1), -1, -1):
+    #     out = out + [input_list[index]]
+
+    # return out 
+
+
+    # for index in input_list[cus]
+
+    #     custom_append ()
+    
+    # # out = []
+    # # for letter in input_list[-1:
+    #     custom_append(input_list, letter)
+
 
 def custom_contains(input_list, value):
     """custom_contains(input_list, value) imitates (value in input_list)"""
-    pass
+
+    # for item in input_list:
+    #     if item == value
+    #         return true
+    #     # else:
+    #     #     return false
+
+    count = 0
+    for i in input_list:
+        if count == custom_len(input_list):
+            return False  
+        elif i == value:
+            return True 
+        else:
+            count = count + 1 
+
+    # while (item != value):
+    #     if item == value:
+    #         return True
+    #     elif count == custom_len(input_list):
+    #         return False
+    #     else:
+    #         count = count + 1
+
 
 def custom_equality(some_list, another_list):
     """custom_equality(some_list, another_list) imitates
     (some_list == another_list)
     """
-    pass
+    
+    if custom_len(some_list) != custom_len(another_list):
+        return False
+    else:
+        count = 0
+        for item in some_list:
+            if item == another_list[count]:
+                count = count + 1
+            else:
+                return False
+        return True
+
+
+
+    #     if count == custom_len(another_list):
+    #         return True 
+    #     elif item == another_list[count]:
+    #         count = count + 1
+    #     # elif some_list[custom_len(some_list)] == another_list[custom_len(another_list)]:
+    #     #     return True
+    #     elif item != another_list[count]:
+    #         print some_list[count], another_list[count], False
+            #return False
+    #     for index in custom_len(some_list):
+    #         if some_list[index] == another_list[index]:
+    #             index = index + 1
+    # elif some_list[custom_len(some_list)] == another_list[custom_len(another_list)]
+    #         #     return True 
+    #         else: 
+    #             return False
+    #         return true
