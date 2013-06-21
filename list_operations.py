@@ -250,17 +250,26 @@ def custom_reverse(input_list):
     """custom_reverse(input_list) imitates input_list.reverse()"""
 
     #create a variable for holding the first swap index[i]
+    # i = 0
+    # while (i < (( custom_len(input_list))/2)):
+    #     swap_box = input_list[i]
+    #     # print input_list
+    #     input_list[i] = input_list[-1-i]
+    #     # print input_list
+    #     input_list[-1-i] = swap_box
+    #     i = i + 1
+    # return input_list 
     i = 0
-    #for i in ( custom_len(input_list))/2)
-    while (i < (( custom_len(input_list))/2)):
+    for item in input_list:
         swap_box = input_list[i]
-        # print input_list
         input_list[i] = input_list[-1-i]
-        # print input_list
         input_list[-1-i] = swap_box
         i = i + 1
+        if i == ((custom_len(input_list))/2):
+            break
     return input_list 
-    
+
+
     # Later, we will make this into a for loop 
     # for item in input_list 
     #     swap_box = input_list[i]
